@@ -5,6 +5,8 @@ import "../style/FormComponents.css";
 const FormComponents = () => {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
+  const [dni, setDni] = useState("");
+  const [email, setEmail] = useState("");
 
   const validarNombre = (nombre) => {
     if (nombre.length >= 5) {
@@ -14,10 +16,24 @@ const FormComponents = () => {
     }
   };
   const validarApellido = (apellido) => {
-    if (nombre.length >= 5) {
+    if (apellido.length >= 5) {
       console.log("apellido correcto");
     } else {
       console.log("apellido incorrecto");
+    }
+  };
+  const validarDni = (dni) => {
+    if (dni.length >= 8) {
+      console.log("Dni correcto");
+    } else {
+      console.log("Dni incorrecto");
+    }
+  };
+  const validarEmail = (email) => {
+    if (email.length >= 8) {
+      console.log("Email correcto");
+    } else {
+      console.log("Email incorrecto");
     }
   };
   
@@ -34,6 +50,8 @@ const FormComponents = () => {
           e.preventDefault();
           validarNombre(nombre);
           validarApellido(apellido)
+          validarDni(dni)
+          validarEmail(email)
         }}
       >
         <h1>Formulario</h1>
@@ -66,6 +84,8 @@ const FormComponents = () => {
           maxLength={8}
           minLength={8}
           required
+          value={dni}
+          onChange={(e)=> setDni(e.target.value)}
         />
         <label className="d-flex justify-content-start">Email</label>
         <input
@@ -74,6 +94,8 @@ const FormComponents = () => {
           maxLength={50}
           minLength={20}
           required
+          value={email}
+          onChange={(e)=> setEmail(e.target.value)}
         />
         <button
           type="submit"
