@@ -8,37 +8,17 @@ const FormComponents = () => {
   const [dni, setDni] = useState("");
   const [email, setEmail] = useState("");
 
-  const validarNombre = (nombre) => {
-    if (nombre.length >= 5)return true
-  }
-  const validarApellido = (apellido) => {
-    if (apellido.length >= 5)return true;
-  }
-  const validarDni = (dni) => {
-    if (dni.length >= 8)return true;
-  };
-  const validarEmail = (email) => {
-    if (email.length >= 8) return true; 
-  };
-  
-  const validar =()=>{
-    if(validarNombre(nombre) === true && validarApellido(apellido)=== true && validarDni(dni)=== true && validarEmail(email)=== true){
-      alert("datos enviados")
-    }else{
-      alert("completa todos los campos")
+
+    const validar = ()=>{
+      (nombre.length >= 5 && apellido.length >=10 && dni.length >= 8) ? alert("datos enviados") :alert("completa los campos");
     }
-  }
-
-
-
-
 
   return (
     <div className="divFromulario">
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          validar()
+           validar()
         }}
       >
         <h1>Formulario</h1>
