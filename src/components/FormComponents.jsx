@@ -9,35 +9,25 @@ const FormComponents = () => {
   const [email, setEmail] = useState("");
 
   const validarNombre = (nombre) => {
-    if (nombre.length >= 5) {
-      console.log("nombre correcto");
-    } else {
-      console.log("nombre incorrecto");
-    }
-  };
+    if (nombre.length >= 5)return true
+  }
   const validarApellido = (apellido) => {
-    if (apellido.length >= 5) {
-      console.log("apellido correcto");
-    } else {
-      console.log("apellido incorrecto");
-    }
-  };
+    if (apellido.length >= 5)return true;
+  }
   const validarDni = (dni) => {
-    if (dni.length >= 8) {
-      console.log("Dni correcto");
-    } else {
-      console.log("Dni incorrecto");
-    }
+    if (dni.length >= 8)return true;
   };
   const validarEmail = (email) => {
-    if (email.length >= 8) {
-      console.log("Email correcto");
-    } else {
-      console.log("Email incorrecto");
-    }
+    if (email.length >= 8) return true; 
   };
   
-
+  const validar =()=>{
+    if(validarNombre(nombre) === true && validarApellido(apellido)=== true && validarDni(dni)=== true && validarEmail(email)=== true){
+      alert("datos enviados")
+    }else{
+      alert("completa todos los campos")
+    }
+  }
 
 
 
@@ -48,10 +38,7 @@ const FormComponents = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          validarNombre(nombre);
-          validarApellido(apellido)
-          validarDni(dni)
-          validarEmail(email)
+          validar()
         }}
       >
         <h1>Formulario</h1>
